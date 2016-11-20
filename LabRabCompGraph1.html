@@ -1,0 +1,88 @@
+﻿<HTML>
+<BODY>
+
+<p>Lab1 Algorytmi Bresenchema </p>
+
+<canvas id="lab01" width="600" height="600">
+
+<script>
+	var canvas = document.getElementById("lab01");
+	
+	var context = canvas.getContext("2d");
+
+
+	var x0 = 100;
+	var y0 = 50;
+
+	var x1 = 150;
+	var y1 = 300;
+	
+	var deltax = Math.abs(x1-x0);
+	var deltay = Math.abs(y1-y0);
+
+	var error = 0;
+	
+	var y = y0;
+
+	for(var i = x0; i <= x1; i++)
+	{
+	
+		context.fillRect(i, y, 5,5);
+	
+		error = error + deltay;
+	
+	if(2*error >= deltax)
+	{
+		y=y-1;
+		error = error - deltax;
+
+	} 
+
+	}
+
+
+
+
+	var a=50, b=50;
+
+	var r = 30;
+
+	var x = (-1)*r;
+	var y = 0;
+
+	var F = 1-r;
+
+	var dFs = 3;
+	var dFd = 5-2*r;
+
+	while(x+y <= 0)
+	{
+		context.fillRect(a+x,b+y,1,1);
+
+	if(F>0)
+	{
+		F += dFd;
+
+		x++; 
+		y++;
+
+		dFs +=2;
+		dFd +=4;
+	}
+	else
+	{
+		F += dFs;
+
+		y++;
+	
+		dFs +=2;
+		dFd +=2;
+	}
+	}
+
+
+</script>
+</canvas>
+</BODY>
+</HTML>
+
